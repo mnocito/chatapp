@@ -1,0 +1,54 @@
+<style>
+	.swag:hover {
+		color: #ADD8E6;
+		cursor: pointer;
+	}
+</style>
+
+<div class="container" style="" ng-init="showDialog($event)" ng-cloak="" >
+	<h1 style="text-align: center;">You are in room <strong>{{room.name}}</strong></h1>
+	<div id="channels" class="md-padding" layout="column" flex style="border-style: solid; border-width: 1px; overflow: auto; width: 15%; height: 70%; float: left; display: inline;"> 
+		<div flex style="font-size: 1em;" ng-repeat="channel in room.channels" ng-click="toChannel(channel)">
+			<span ng-show="curChannel == channel" style="color: red;">
+				{{channel}}
+			</span>
+			<span ng-hide="curChannel == channel">
+				{{channel}}
+			</span>
+			<md-divider></md-divider>
+		</div>
+		<div flex style="font-size: 1em; cursor: pointer;" ng-click="newRoomDialog($event)">
+			+ new
+		</div>
+	</div>
+	<div scroll-glue id="chatbox" flex class="md-padding" style="border-style: solid; border-width: 1px; overflow: auto; width: 70%; height: 70%; float: left; display: inline;" ng-if="messages[0]">
+		<div scroll-glue class="center-block img-circle" ng-repeat="message in messages" style="font-size: 1em; width: 100%; border-width: 1px;">
+			<span ng-if="username == message.createdby" style="color: green;"><strong>{{message.createdby}}<span ng-if="message.date">:</span> </strong>{{message.body}}<span ng-hide="message.date">.</span><span style="float: right;">{{message.date}}</span></span>
+			<span ng-if="username != message.createdby"><strong>{{message.createdby}}<span ng-if="message.date">:</span></strong> {{message.body}}<span ng-hide="message.date">.</span><span style="float: right;">{{message.date}}</span></span>
+		</div>
+	</div>
+	<div style="border-style: solid; border-width: 1px; overflow: auto; width: 70%; height: 70%; float: left; display: inline; font-size: 40px;" ng-hide="messages[0]"> There are no messages to show.
+	</div>
+	<div id="channels" class="md-padding" layout="column" flex style="border-style: solid; border-width: 1px; overflow: auto; width: 15%; height: 70%; float: right; display: inline;"> 
+		<div flex style="font-size: 1em;">
+			<span><strong>Current users</strong></span> <br \>
+			<span ng-repeat="user in users">
+				{{user}} <span ng-show="user != username"><span class="glyphicon glyphicon-hand-right swag" title="Poke" ng-click="pokeDialog($event, user)"></span>&nbsp<span class="glyphicon glyphicon-plus-sign swag" title="PM"></span></span>
+				<br \>
+			</span>
+		</div>
+	</div>
+	<form ng-submit="addmsg()" id="form">
+		<input type="text" ng-model="message" style="width: 100%; font-size: 40px;" placeholder="Type a message...">
+	</form>
+	<br />
+	<span ng-if="show" style="font-size: 2rem;">Your name is <strong>{{username}}</strong> <md-button class="md-accent md-raised" ng-click="showRoomDialog($event)">switch rooms</md-button></span> <br />
+	<span ng-if="show" style="font-size: 2rem;">You're in channel <strong>{{curChannel}}</strong>
+
+	</div>
+
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->

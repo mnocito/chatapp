@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+	<!-- geolocation -->
+
+	<!-- load bootstrap + fontawesome -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> 
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> 
+
+	<!-- angular material style sheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.9/angular-material.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- angular libraries -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+	<!-- routing directive -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+
+
+	<!-- flash messages -->
+	<script src="/javascripts/dependencies/angular-flash.min.js"></script>
+
+	<!-- scrollglue -->
+	<script src="/javascripts/dependencies/scrollglue.js"></script>
+
+	<!-- socket.io -->
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<script src="/javascripts/dependencies/socket.min.js"></script>
+	<script src="/javascripts/services/chatSocket.js"></script>
+
+	<!-- angular controllers and routing-->
+	<script src="/javascripts/controllers/routes.js"></script>
+	<script src="/javascripts/controllers/mainCtrl.js"></script>
+	<script src="/javascripts/controllers/roomCtrl.js"></script>
+	<base href="/">
+	<!-- start of doc -->
+</head>
+
+<body ng-app="skype" ng-cloak="" ng-controller="mainCtrl">
+	<flash-message
+	duration="5000"
+	show-close="true"
+	on-dismiss=""
+	></flash-message>
+	<div ng-view></div>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+
+<div flex="30" layout="column" style="margin: auto;" >
+  <md-dialog aria-label="entername" class="container md-padding" ng-cloak>
+  	<span style="overflow: wrap; text-align: center;"><strong>{{receivedpoke.createdby}} has poked you with message:</strong> {{receivedpoke.body}}</span>
+  	<md-button class="md-raised md-primary" ng-click="pokeDialog($event, receivedpoke.createdby)" layout-align="center center">Poke {{receivedpoke.createdby}} back</md-button>
+  </md-dialog>
+</div>
+<script type='text/javascript'>
+</script>
