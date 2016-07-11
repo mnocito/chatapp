@@ -1,6 +1,7 @@
 # chatapp
-a chat application with individual rooms and room channels using nodejs and socket.io
+a chat application with individual rooms using nodejs and socket.io
 
-nicknames are included as well
+app includes:
+rooms (like a group chat), specific channels within rooms, nicknames, leave/join messages, current online users list
 
-messages are saved in a database and so are channels
+you can also poke other users
